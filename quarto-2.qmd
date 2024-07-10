@@ -3,5 +3,28 @@ title: "Quarto 2"
 author: hayk
 format: html
 editor: visual
+execute: 
+  echo: false
+  message: file
 ---
 
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+```{r}
+
+#| label: make-plot
+#| echo: false
+#| message: false
+penguins |> 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm, color = species)) +
+    geom_point() +
+    labs(title = "Penguins Body Mass compared to Flipper Length", 
+         x = "Body Mass", 
+         y = "Flipper Length")
+```
